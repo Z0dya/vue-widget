@@ -1,0 +1,102 @@
+h1,
+h2 {
+    font-size: 24px;
+    width: 50%;
+    text-align: center;
+    margin: 10px 0;
+    background: linear-gradient(to right, #4776e6, #8e54e9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 10s ease-in infinite;
+    background-size: 200%;
+}
+
+.area {
+    display: flex;
+    justify-content: center;
+}
+
+.weatherBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid transparent;
+    background: linear-gradient(#c2d3e8, #c2d3e8, #dfb1d5, #dfb1d5) padding-box, radial-gradient(#00C9A7, #845EC2);
+    width: 250px;
+    height: 360px;
+    border-radius: 10%;
+    padding: 30px;
+    text-align: center;
+    margin: 10px;
+    position: absolute;
+}
+
+.cityName {
+    background: linear-gradient(to right, #4776e6, #8e54e9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 100%;
+    cursor: default;
+}
+
+.temp {
+    width: 100%;
+    background: linear-gradient(to right, #4776e6, #8e54e9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 22px;
+}
+
+.temp__count {
+    font-size: 40px;
+    margin: 0;
+    cursor: default;
+}
+
+.temp__count::after {
+    content: '°C'
+}
+
+.temp__description {
+    cursor: default;
+}
+
+.temp__wind {
+    cursor: default;
+}
+
+.weather__icon {
+    width: 100%;
+    margin: 0;
+}
+
+
+/* стили для разных температур */
+
+.hot {
+    /* background: #FFFFCC; */
+    background: linear-gradient(#c2d3e8, #FFFFCC, #FFFFCC, #dfb1d5) padding-box, radial-gradient(#00C9A7, #845EC2);
+}
+
+.normal {
+    /* background: #ffffffd6; */
+    background: linear-gradient(#c2d3e8, #ffffff, #ffffff, #dfb1d5) padding-box, radial-gradient(#00C9A7, #845EC2);
+}
+
+.cold {
+    /* background: #CCFFFF; */
+    background: linear-gradient(#c2d3e8, #CCFFFF, #CCFFFF, #dfb1d5) padding-box, radial-gradient(#00C9A7, #845EC2);
+}
+
+/* стили тэгов */
+
+hr {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
