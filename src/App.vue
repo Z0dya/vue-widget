@@ -2,7 +2,7 @@
 	<div>
 		<!-- можно сократить как  @selectCity-->
 		<choose-city v-on:selectCity="getCity" />
-		<weather-widget v-bind:nameCity="nameCity" />
+		<weather-widget v-bind:nameCity="nameCity"/>
 	</div>
 </template>
 

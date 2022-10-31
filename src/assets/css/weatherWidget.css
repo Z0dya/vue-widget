@@ -15,6 +15,7 @@ h2 {
 .area {
     display: flex;
     justify-content: center;
+    height: 100vh;
 }
 
 .weatherBlock {
@@ -31,6 +32,8 @@ h2 {
     text-align: center;
     margin: 10px;
     position: absolute;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .cityName {
@@ -40,6 +43,7 @@ h2 {
     -webkit-text-fill-color: transparent;
     width: 100%;
     cursor: default;
+    pointer-events: none;
 }
 
 .temp {
@@ -49,29 +53,35 @@ h2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 22px;
+    pointer-events: none;
 }
 
 .temp__count {
     font-size: 40px;
     margin: 0;
     cursor: default;
+    pointer-events: none;
 }
 
 .temp__count::after {
-    content: '°C'
+    content: '°C';
+    pointer-events: none;
 }
 
 .temp__description {
     cursor: default;
+    pointer-events: none;
 }
 
 .temp__wind {
     cursor: default;
+    pointer-events: none;
 }
 
 .weather__icon {
     width: 100%;
     margin: 0;
+    pointer-events: none;
 }
 
 
@@ -99,4 +109,5 @@ hr {
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    pointer-events: none;
 }
