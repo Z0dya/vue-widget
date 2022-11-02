@@ -38,9 +38,9 @@ export default {
 				offsetX: 0,
 			},
 			// переменные для записи данных в HTML
-			capital: 'London',
+			capital: 'Город',
 			tempCount: 20,
-			tempDescription: 'Описания нет',
+			tempDescription: 'Описание',
 			weatherIcon: '/img/02d@2x.png',
 			tempWind: '0',
 		};

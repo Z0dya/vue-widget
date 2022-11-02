@@ -44,7 +44,7 @@ export default {
 		initial() {
 			const data = JSON.parse(sessionStorage.getItem('weather')); // конвертирование в объект
 
-			if (data.capital) {
+			if (data) {
 				//если data !null то делаем:
 				const options = document.querySelectorAll('option'); //поиск по всем option'am
 				for (let option of options) {
