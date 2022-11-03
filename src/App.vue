@@ -1,8 +1,8 @@
 <template>
-	<div>
+	<div @mousemove="moveTrigger">
 		<!-- можно сократить как  @selectCity-->
 		<choose-city v-on:selectCity="getCity" />
-		<weather-widget v-bind:nameCity="nameCity"/>
+		<weather-widget v-bind:nameCity="nameCity" ref="weatherWidget" />
 	</div>
 </template>
 
@@ -26,6 +26,9 @@ export default {
 		//функции
 		getCity(nameCity) {
 			this.nameCity = nameCity;
+		},
+		moveTrigger(e) {
+			this.$refs.weatherWidget.move(e);
 		},
 	},
 };

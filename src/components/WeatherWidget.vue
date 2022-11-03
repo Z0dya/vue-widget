@@ -1,7 +1,7 @@
 <template>
-	<div class="area" v-on:mouseup="mouseUp">
+	<div class="area" v-on:mouseup="mouseUp" >
 		<!-- mouseUp - отпускаю мышь | mouseDown - когда 1 раз нажал на мышку  | mousemove - когда мышка двигается -->
-		<div class="weatherBlock" ref="weatherBlock" v-on:mousedown="mouseDown" @mousemove="move">
+		<div class="weatherBlock" ref="weatherBlock" v-on:mousedown="mouseDown" >
 			<h1 class="cityName" ref="cityName">{{ capital }}</h1>
 			<hr />
 			<div class="temp">
