@@ -1,5 +1,7 @@
 # vue-weather
 
+## How this web application look like - https://vue-widget.vercel.app/ 
+
 ## Project setup
 ```
 npm install
