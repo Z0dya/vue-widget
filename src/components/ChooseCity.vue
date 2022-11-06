@@ -68,4 +68,39 @@ export default {
 };
 </script>
 
-<style scoped src="@/assets/css/chooseCity.css"></style>
+<style scoped>
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+select {
+	margin: 20px;
+	font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+	font-size: 18px;
+	color: #222;
+	padding: 5px 0;
+}
+
+option {
+	text-align: center;
+	font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+	font-size: 18px;
+}
+
+h1,
+h2 {
+	font-size: 24px;
+	width: 50%;
+	text-align: center;
+	margin: 10px 0;
+	background: linear-gradient(to right, #4776e6, #8e54e9);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradient 10s ease-in infinite;
+	background-size: 200%;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
-	<div class="area" v-on:mouseup="mouseUp" >
+	<div class="area" v-on:mouseup="mouseUp">
 		<!-- mouseUp - отпускаю мышь | mouseDown - когда 1 раз нажал на мышку  | mousemove - когда мышка двигается -->
-		<div class="weatherBlock" ref="weatherBlock" v-on:mousedown="mouseDown" >
+		<div class="weatherBlock" ref="weatherBlock" v-on:mousedown="mouseDown">
 			<h1 class="cityName" ref="cityName">{{ capital }}</h1>
 			<hr />
 			<div class="temp">
@@ -162,9 +162,9 @@ export default {
 	},
 	watch: {
 		// watch следит за изменением переменных
-		nameCity() {
+		async nameCity() {
 			this.capital = this.nameCity;
-			this.getWeather();
+			await this.getWeather();
 		},
 
 		tempCount() {
@@ -174,15 +174,128 @@ export default {
 			this.$refs.icon.src = this.weatherIcon;
 		},
 	},
-	mounted() {
+	async mounted() {
 		this.initial();
 		this.changeColor();
 		//обновление информации каждую минуту
-		setInterval(() => {
+		await setInterval(() => {
 			this.getWeather();
 		}, 60000);
 	},
 };
 </script>
 
-<style src="@/assets/css/weatherWidget.css"></style>
+<style>
+h1,
+h2 {
+	font-size: 24px;
+	width: 50%;
+	text-align: center;
+	margin: 10px 0;
+	background: linear-gradient(to right, #4776e6, #8e54e9);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradient 10s ease-in infinite;
+	background-size: 200%;
+}
+
+.area {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+}
+
+.weatherBlock {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 5px solid transparent;
+	background: linear-gradient(#c2d3e8, #c2d3e8, #dfb1d5, #dfb1d5) padding-box, radial-gradient(#00c9a7, #845ec2);
+	width: 250px;
+	height: 360px;
+	border-radius: 10%;
+	padding: 30px;
+	text-align: center;
+	margin: 10px;
+	position: absolute;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.cityName {
+	background: linear-gradient(to right, #4776e6, #8e54e9);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	width: 100%;
+	cursor: default;
+	pointer-events: none;
+}
+
+.temp {
+	width: 100%;
+	background: linear-gradient(to right, #4776e6, #8e54e9);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 22px;
+	pointer-events: none;
+}
+
+.temp__count {
+	font-size: 40px;
+	margin: 0;
+	cursor: default;
+	pointer-events: none;
+}
+
+.temp__count::after {
+	content: '°C';
+	pointer-events: none;
+}
+
+.temp__description {
+	cursor: default;
+	pointer-events: none;
+}
+
+.temp__wind {
+	cursor: default;
+	pointer-events: none;
+}
+
+.weather__icon {
+	width: 100%;
+	margin: 0;
+	pointer-events: none;
+}
+
+/* стили для разных температур */
+
+.hot {
+	/* background: #FFFFCC; */
+	background: linear-gradient(#c2d3e8, #ffffcc, #ffffcc, #dfb1d5) padding-box, radial-gradient(#00c9a7, #845ec2);
+}
+
+.normal {
+	/* background: #ffffffd6; */
+	background: linear-gradient(#c2d3e8, #ffffff, #ffffff, #dfb1d5) padding-box, radial-gradient(#00c9a7, #845ec2);
+}
+
+.cold {
+	/* background: #CCFFFF; */
+	background: linear-gradient(#c2d3e8, #ccffff, #ccffff, #dfb1d5) padding-box, radial-gradient(#00c9a7, #845ec2);
+}
+
+/* стили тэгов */
+
+hr {
+	width: 100%;
+	border: 0;
+	height: 1px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	pointer-events: none;
+}
+</style>
