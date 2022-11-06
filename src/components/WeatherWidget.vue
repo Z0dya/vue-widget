@@ -23,7 +23,7 @@ import { getNumbersFromString } from '../utils/getNumbersFromString';
 
 export default {
 	props: {
-		nameCity: {
+		cityName: {
 			type: String,
 			default: '',
 		},
@@ -162,8 +162,8 @@ export default {
 	},
 	watch: {
 		// watch следит за изменением переменных
-		async nameCity() {
-			this.capital = this.nameCity;
+		async cityName() {
+			this.capital = this.cityName;
 			await this.getWeather();
 		},
 

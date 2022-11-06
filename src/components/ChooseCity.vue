@@ -4,9 +4,9 @@
 			Погода в столицах мира <br />
 			Здесь вы можете узнать погоду в разных городах по всей планете!
 		</h1>
-		<select id="select" ref="select" v-on:change="changeCity">
+		<!-- v-model =  -->
+		<select id="select" v-model="capital">
 			<option value="unset">Выберите страну</option>
-			<!-- <option  v-for="option of options" :key="option.id"></option> -->
 			<option v-bind:value="city.capital" v-for="city of cities" :key="city.id">{{ city.name }}</option>
 		</select>
 	</div>
@@ -18,6 +18,7 @@ import axios from 'axios';
 export default {
 	data() {
 		return {
+			capital: 'unset',
 			//переменные
 			cities: [],
 			url: 'https://restcountries.com/v2/all?fields=name,capital',
@@ -36,35 +37,27 @@ export default {
 				alert(error);
 			}
 		},
-		// функция  в котором пишем событие отправки выбранного города (страны) в App
-		changeCity(event) {
-			this.$emit('selectCity', event.target.value);
-		},
+
 		//сохранение выбранного города
 		initial() {
+			// при перезагрузке страницы сохранение выбранного города
 			const data = JSON.parse(sessionStorage.getItem('weather')); // конвертирование в объект
-
-			if (data) {
-				//если data !null то делаем:
-				const options = document.querySelectorAll('option'); //поиск по всем option'am
-				for (let option of options) {
-					option.selected = false; //по дефолту не будет выбранного option'a
-					if (option.value === data.capital) {
-						//если value(город) содержит такой же город, то выделяем option как выбранный
-						option.selected = true;
-					}
-				}
-			}
+			// присваивание переменной | capital ='unset' | значение выбранной столицы из session storage 
+			this.capital = data.capital;
+		},
+	},
+	watch: {
+		// функция  в котором пишем событие отправки выбранного города (страны) в App
+		capital() {
+			this.$emit('selectCity', this.capital);
 		},
 	},
 	// хук жизненного цикла после рендера страницы
-	mounted() {
-		this.getOptions();
-	},
-	// при перезагрузке страницы сохранение выбранного города
-	updated() {
+	async mounted() {
+		await this.getOptions();
 		this.initial();
 	},
+	
 };
 </script>
 

@@ -3,7 +3,7 @@
 		<!-- можно сократить как  @selectCity-->
 		<!-- selectCity это отправленное событие с помощью @emit из ChooseCity -->
 		<choose-city v-on:selectCity="getCity" />
-		<weather-widget v-bind:nameCity="nameCity" ref="weatherWidget" />
+		<weather-widget v-bind:cityName="nameCity" ref="weatherWidget" />
 	</div>
 </template>
 
@@ -25,8 +25,8 @@ export default {
 
 	methods: {
 		//функции
-		getCity(nameCity) {
-			this.nameCity = nameCity;
+		getCity(nameSelectCity) {
+			this.nameCity = nameSelectCity;
 		},
 		moveTrigger(e) {
 			this.$refs.weatherWidget.move(e);
